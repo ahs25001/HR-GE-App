@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_colors.dart';
 import 'package:he_dg/core/utils/app_images.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -63,7 +64,7 @@ class OnboardingScreen extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: "Poppins",
                         color: ((state.index ?? 0) > 0)
-                            ? AppColors.buttonColor
+                            ? AppColors.primaryColor
                             : Colors.grey,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
@@ -81,9 +82,14 @@ class OnboardingScreen extends StatelessWidget {
                   const Spacer(),
                   FloatingActionButton(
                     shape: const CircleBorder(),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                     onPressed: () {
-                      OnboardingBloc.get(context).add(ToNextPageEvent());
+                      if ((state.index ?? 0) < 2) {
+                        OnboardingBloc.get(context).add(ToNextPageEvent());
+                      } else {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, AppRouts.login, (route) => false);
+                      }
                     },
                     splashColor: Colors.transparent,
                     child: Icon(
