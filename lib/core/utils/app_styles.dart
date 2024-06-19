@@ -54,4 +54,16 @@ class AppStyles {
           borderRadius:
           BorderRadius.circular(
               18.r)));
+  static ButtonStyle signUpButtonStyle = ElevatedButton.styleFrom(
+
+      padding: EdgeInsets.symmetric(
+          vertical: 15.h,
+          horizontal: 100.w
+      ),
+      backgroundColor:
+      AppColors.primaryColor,
+      shape: RoundedRectangleBorder(
+          borderRadius:
+          BorderRadius.circular(
+              18.r)));
 }

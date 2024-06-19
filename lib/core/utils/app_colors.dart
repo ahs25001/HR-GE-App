@@ -7,4 +7,5 @@ class AppColors{
    static Color stepColor = const Color(0XFF00BF54).withOpacity(.5);
    static Color signInIconColor = const Color(0XFF098AD3).withOpacity(.3);
    static Color borderColor = const Color(0XFF10284A);
+   static Color spacerColor = const Color(0XFF757575);
 }

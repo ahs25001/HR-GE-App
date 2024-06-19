@@ -3,26 +3,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/config/routs/routs.dart';
-import 'package:he_dg/core/utils/app_colors.dart';
-import 'package:he_dg/core/utils/app_images.dart';
-import 'package:he_dg/core/utils/app_styles.dart';
-import 'package:he_dg/fetures/login/presentation/widgets/login_field.dart';
-import 'package:he_dg/fetures/login/presentation/widgets/square_tile.dart';
+import 'package:he_dg/fetures/sgin%20up/presentation/widgets/sign_up_field.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-import '../bloc/login_bloc.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../login/presentation/widgets/square_tile.dart';
+import '../bloc/sign_up_bloc.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _SignUpScreenState extends State<SignUpScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
+
   late Animation<double> opacityAnimation;
+
   late Animation<Offset> slideCardAnimate;
+
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -34,8 +38,8 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: BlocBuilder<LoginBloc, LoginState>(
+      create: (context) => SignUpBloc(),
+      child: BlocBuilder<SignUpBloc, SignUpState>(
         builder: (context, state) {
           return Form(
             key: formKey,
@@ -90,30 +94,67 @@ class _LoginScreenState extends State<LoginScreen>
                                         vertical: 50.h, horizontal: 20.w),
                                     child: Column(
                                       children: [
-                                        LoginField(
-                                            validator: (String value) {
-                                              if (value.trim().isEmpty) {
-                                                return "This field is required";
-                                              }
-                                              if (!RegExp(
-                                                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                                  .hasMatch(value)) {
-                                                return "This Email not valid";
-                                              }
-                                              return null;
-                                            },
-                                            hint: "Email",
-                                            controller: LoginBloc.get(context)
-                                                .emailController),
+                                        SignUpField(
+                                          validator: (String value) {
+                                            if (value.trim().isEmpty) {
+                                              return "This field is required";
+                                            }
+                                            return null;
+                                          },
+                                          hint: "Full Name",
+                                          controller: SignUpBloc.get(context)
+                                              .nameController,
+                                          focusNode: SignUpBloc.get(context)
+                                              .nameFocusNode,
+                                          onFieldSubmitted: () {
+                                            FocusScope.of(context).requestFocus(
+                                                SignUpBloc.get(context)
+                                                    .emailFocusNode);
+                                          },
+                                        ),
                                         SizedBox(
                                           height: 17.h,
                                         ),
-                                        LoginField(
+                                        SignUpField(
+                                          isEmail: true,
+                                          focusNode: SignUpBloc.get(context)
+                                              .emailFocusNode,
+                                          validator: (String value) {
+                                            if (value.trim().isEmpty) {
+                                              return "This field is required";
+                                            }
+                                            if (!RegExp(
+                                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                                .hasMatch(value)) {
+                                              return "This Email not valid";
+                                            }
+                                            return null;
+                                          },
+                                          hint: "Email",
+                                          controller: SignUpBloc.get(context)
+                                              .emailController,
+                                          onFieldSubmitted: () {
+                                            FocusScope.of(context).requestFocus(
+                                                SignUpBloc.get(context)
+                                                    .passwordFocusNode);
+                                          },
+                                        ),
+                                        SizedBox(
+                                          height: 17.h,
+                                        ),
+                                        SignUpField(
+                                          onFieldSubmitted: () {
+                                            FocusScope.of(context).requestFocus(
+                                                SignUpBloc.get(context)
+                                                    .phoneFocusNode);
+                                          },
+                                          focusNode: SignUpBloc.get(context)
+                                              .passwordFocusNode,
                                           isPasswordVisible:
                                               state.passwordIsVisible ?? false,
                                           changePasswordVisibility: () {
-                                            LoginBloc.get(context).add(
-                                                ChangePasswordVisibility());
+                                            SignUpBloc.get(context).add(
+                                                ChangePasswordVisibilityEvent());
                                           },
                                           hint: "Password",
                                           validator: (String value) {
@@ -122,37 +163,63 @@ class _LoginScreenState extends State<LoginScreen>
                                             }
                                             return null;
                                           },
-                                          controller: LoginBloc.get(context)
+                                          controller: SignUpBloc.get(context)
                                               .passwordController,
                                           isPassword: true,
                                         ),
                                         SizedBox(
                                           height: 17.h,
                                         ),
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          onTap: () => Navigator.pushNamed(
-                                              context, AppRouts.forgetPassword),
-                                          child: Text(
-                                            "Forgot Your Password?",
-                                            style:
-                                                AppStyles.forgetPasswordStyle,
+                                        InternationalPhoneNumberInput(
+                                          focusNode: SignUpBloc.get(context)
+                                              .phoneFocusNode,
+                                          onInputChanged: (value) {
+                                            SignUpBloc.get(context).add(
+                                                PhoneNumberTypingEvent(value));
+                                          },
+                                          textFieldController:
+                                              SignUpBloc.get(context)
+                                                  .phoneNumberController,
+                                          initialValue:
+                                              SignUpBloc.get(context).number,
+                                          formatInput: true,
+                                          textStyle: AppStyles.subTitleStyle,
+                                          selectorTextStyle:
+                                              AppStyles.subTitleStyle,
+                                          inputBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(22.r),
+                                              borderSide: BorderSide(
+                                                  color:
+                                                      AppColors.borderColor)),
+                                          selectorConfig: SelectorConfig(
+                                            trailingSpace: false,
+                                            leadingPadding: 14.h,
+                                            setSelectorButtonAsPrefixIcon: true,
+                                            selectorType:
+                                                PhoneInputSelectorType.DROPDOWN,
                                           ),
                                         ),
                                         SizedBox(
                                           height: 17.h,
                                         ),
                                         ElevatedButton(
-                                          onPressed: () {
+                                          onPressed: () async {
                                             if (formKey.currentState!
                                                 .validate()) {
-                                              Navigator.pushNamed(context,
-                                                  AppRouts.reliabilityScreen);
+                                              print(state
+                                                  .phoneNumber?.phoneNumber);
+                                              Navigator.pushNamed(
+                                                  context,
+                                                  AppRouts
+                                                      .verificationSignUpScreen,
+                                                  arguments: state.phoneNumber
+                                                      ?.phoneNumber);
                                             }
                                           },
-                                          style: AppStyles.loginButtonStyle,
+                                          style: AppStyles.signUpButtonStyle,
                                           child: Text(
-                                            "Login",
+                                            "Sign Up",
                                             style: AppStyles.regularStyle,
                                           ),
                                         ),
@@ -184,7 +251,7 @@ class _LoginScreenState extends State<LoginScreen>
                                           children: [
                                             const Spacer(),
                                             Text(
-                                              "Don't Have An Account ?",
+                                              "Have An Account ?",
                                               style:
                                                   AppStyles.forgetPasswordStyle,
                                             ),
@@ -193,11 +260,13 @@ class _LoginScreenState extends State<LoginScreen>
                                             ),
                                             InkWell(
                                               splashColor: Colors.transparent,
-                                              onTap: () => Navigator.pushNamed(
-                                                  context,
-                                                  AppRouts.signUpScreen),
+                                              onTap: () => Navigator
+                                                  .pushNamedAndRemoveUntil(
+                                                      context,
+                                                      AppRouts.login,
+                                                      (route) => false),
                                               child: Text(
-                                                "Sign Up",
+                                                "Login",
                                                 style: AppStyles
                                                     .forgetPasswordStyle
                                                     .copyWith(

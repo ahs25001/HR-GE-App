@@ -20,17 +20,17 @@ class Assets {
   static const String fontsPoppinsSemiBoldItalic = 'assets/fonts/Poppins-SemiBoldItalic.ttf';
   static const String fontsPoppinsThin = 'assets/fonts/Poppins-Thin.ttf';
   static const String fontsPoppinsThinItalic = 'assets/fonts/Poppins-ThinItalic.ttf';
-  static const String imageAppleLogo = 'assets/image/apple-logo.png';
-  static const String imageClipPathGroup = 'assets/image/Clip_path_group.png';
-  static const String imageClipPathGroup2 = 'assets/image/Clip_path_group2.png';
-  static const String imageClipPathGroup3 = 'assets/image/Clip_path_group3.png';
-  static const String imageFlag = 'assets/image/flag.png';
-  static const String imageForgotPassword = 'assets/image/forgot-password.png';
-  static const String imageGoogleIcon = 'assets/image/google_icon.png';
-  static const String imageLogo = 'assets/image/logo.png';
-  static const String imageOnboarding1 = 'assets/image/onboarding1.png';
-  static const String imageOnboarding2 = 'assets/image/onboarding2.png';
-  static const String imageOnboarding3 = 'assets/image/onboarding3.png';
-  static const String imageSecondryAppLogo = 'assets/image/secondry_app_logo.png';
+  static const String imageAppleLogo = 'assets/image/apple-logo.svg';
+  static const String imageClipPathGroup = 'assets/image/Clip_path_group.svg';
+  static const String imageClipPathGroup2 = 'assets/image/Clip_path_group2.svg';
+  static const String imageClipPathGroup3 = 'assets/image/Clip_path_group3.svg';
+  static const String imageForgotPassword = 'assets/image/forgot-password.svg';
+  static const String imageGoogleLogo = 'assets/image/google_logo.svg';
+  static const String imageLogo = 'assets/image/logo.svg';
+  static const String imageOnboarding1 = 'assets/image/onboarding1.svg';
+  static const String imageOnboarding2 = 'assets/image/onboarding2.svg';
+  static const String imageOnboarding3 = 'assets/image/onboarding3.svg';
+  static const String imageSecondryAppLogo = 'assets/image/secondry_app_logo.svg';
+  static const String imageVerificationImage = 'assets/image/verification_image.svg';
 
 }

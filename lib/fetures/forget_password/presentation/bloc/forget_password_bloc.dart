@@ -11,7 +11,6 @@ class ForgetPasswordBloc
     extends Bloc<ForgetPasswordEvent, ForgetPasswordState> {
   static ForgetPasswordBloc get(BuildContext context) =>
       BlocProvider.of(context);
-  String initialCountry = 'EG';
 
   PhoneNumber number = PhoneNumber(isoCode: 'EG');
 

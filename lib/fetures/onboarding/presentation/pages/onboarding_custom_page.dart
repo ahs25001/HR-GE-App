@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_colors.dart';
 import 'package:he_dg/core/utils/app_images.dart';
@@ -50,12 +51,12 @@ class OnboardingCustomPage extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Image.asset(
+                SvgPicture.asset(
                   cliPath,
                   width: 305.w,
                   height: 290.h,
                 ),
-                Image.asset(
+                SvgPicture.asset(
                   imagePath,
                   width: 218.w,
                   height: 220.h,

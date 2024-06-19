@@ -4,13 +4,20 @@ import 'package:he_dg/fetures/forget_password/presentation/pages/forget_password
 import 'package:he_dg/fetures/forget_password/presentation/pages/verification_screen.dart';
 import 'package:he_dg/fetures/login/presentation/pages/login_screen.dart';
 import 'package:he_dg/fetures/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:he_dg/fetures/sgin%20up/presentation/pages/sign_up_screen.dart';
+import 'package:he_dg/fetures/sgin%20up/presentation/pages/verification_sign_up_screen.dart';
+import '../../fetures/reliability/presentation/pages/reliablty_screen.dart';
 
 class AppRouts {
-  static const String onboarding = "/";
+  static const String onboarding = "/kkk";
   static const String login = "login";
   static const String forgetPassword = "forgetPassword";
   static const String createPasswordScreen = "createPassword";
   static const String verificationScreen = "VerificationScreen";
+  static const String verificationSignUpScreen = "verificationSignUpScreen";
+  static const String signUpScreen = "signUpScreen";
+  // static const String reliabilityScreen = "reliabilityScreen";
+  static const String reliabilityScreen = "/";
 }
 
 class Routes {
@@ -28,10 +35,27 @@ class Routes {
         return MaterialPageRoute(
           builder: (context) => ForgetPasswordScreen(),
         );
-      case AppRouts.createPasswordScreen :
-        return MaterialPageRoute(builder: (context) => CreatePasswordScreen(),);
+      case AppRouts.createPasswordScreen:
+        return MaterialPageRoute(
+          builder: (context) => CreatePasswordScreen(),
+        );
       case AppRouts.verificationScreen:
-        return MaterialPageRoute(builder: (context) => VerificationScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => VerificationScreen(),
+        );
+      case AppRouts.signUpScreen:
+        return MaterialPageRoute(
+          builder: (context) => SignUpScreen(),
+        );
+      case AppRouts.verificationSignUpScreen:
+        return MaterialPageRoute(
+            builder: (context) => VerificationSignUpScreen(),
+            settings: settings);
+      case AppRouts.reliabilityScreen:
+        return MaterialPageRoute(
+          builder: (context) => ReliabilityScreen(),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => ErrorScreen(),

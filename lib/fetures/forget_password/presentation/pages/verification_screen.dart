@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_images.dart';
 import 'package:he_dg/core/utils/app_styles.dart';
@@ -12,7 +13,7 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold   (
       appBar: AppBar(
         leading: InkWell(
           onTap: () => Navigator.pop(context),
@@ -24,7 +25,7 @@ class VerificationScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset(
+          SvgPicture.asset(
             AppImages.secondaryAppLogo,
             width: 140.w,
             height: 43.h,
@@ -33,15 +34,9 @@ class VerificationScreen extends StatelessWidget {
           Text("Enter PIN code", style: AppStyles.subTitleStyle,),
           SizedBox(height: 240.h,),
           OtpTextField(
-            numberOfFields: 5,
+            numberOfFields: 4,
             borderColor: AppColors.primaryColor,
-            //set to true to show as box or false to show as dash
             showFieldAsBox: true,
-            //runs when a code is typed in
-            onCodeChanged: (String code) {
-              //handle validation or checks here
-            },
-            //runs when every textfield is filled
             onSubmit: (String verificationCode) {
               Navigator.pushNamedAndRemoveUntil(
                   context, AppRouts.login, (route) => false);

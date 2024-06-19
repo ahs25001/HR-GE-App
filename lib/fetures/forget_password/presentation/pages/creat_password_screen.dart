@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/fetures/forget_password/presentation/bloc/forget_password_bloc.dart';
 import 'package:he_dg/fetures/forget_password/presentation/widgets/forget_password_field.dart';
@@ -42,7 +43,7 @@ class CreatePasswordScreen extends StatelessWidget {
                       SizedBox(
                         height: 55.h,
                       ),
-                      Image.asset(
+                      SvgPicture.asset(
                         AppImages.forgotPasswordImage,
                         width: 140.w,
                         height: 140.h,
