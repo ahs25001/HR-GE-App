@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:he_dg/config/routs/routs.dart';
 
+import 'config.dart';
+
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   await ScreenUtil.ensureScreenSize();
   runApp(MyApp());
 }

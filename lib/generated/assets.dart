@@ -2,6 +2,15 @@
 class Assets {
   Assets._();
 
+  static const String fontsInterBlack = 'assets/fonts/Inter-Black.ttf';
+  static const String fontsInterBold = 'assets/fonts/Inter-Bold.ttf';
+  static const String fontsInterExtraBold = 'assets/fonts/Inter-ExtraBold.ttf';
+  static const String fontsInterExtraLight = 'assets/fonts/Inter-ExtraLight.ttf';
+  static const String fontsInterLight = 'assets/fonts/Inter-Light.ttf';
+  static const String fontsInterMedium = 'assets/fonts/Inter-Medium.ttf';
+  static const String fontsInterRegular = 'assets/fonts/Inter-Regular.ttf';
+  static const String fontsInterSemiBold = 'assets/fonts/Inter-SemiBold.ttf';
+  static const String fontsInterThin = 'assets/fonts/Inter-Thin.ttf';
   static const String fontsPoppinsBlack = 'assets/fonts/Poppins-Black.ttf';
   static const String fontsPoppinsBlackItalic = 'assets/fonts/Poppins-BlackItalic.ttf';
   static const String fontsPoppinsBold = 'assets/fonts/Poppins-Bold.ttf';
@@ -26,6 +35,7 @@ class Assets {
   static const String imageClipPathGroup3 = 'assets/image/Clip_path_group3.svg';
   static const String imageForgotPassword = 'assets/image/forgot-password.svg';
   static const String imageGoogleLogo = 'assets/image/google_logo.svg';
+  static const String imageGreenAppLogo = 'assets/image/green_app_logo.svg';
   static const String imageLogo = 'assets/image/logo.svg';
   static const String imageOnboarding1 = 'assets/image/onboarding1.svg';
   static const String imageOnboarding2 = 'assets/image/onboarding2.svg';

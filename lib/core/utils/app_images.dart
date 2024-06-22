@@ -11,4 +11,5 @@ class AppImages {
   static const String forgotPasswordImage = "assets/image/forgot-password.svg";
   static const String secondaryAppLogo = "assets/image/secondry_app_logo.svg";
   static const String verificationImage = "assets/image/verification_image.svg";
+  static const String greenAppLogoImage = "assets/image/green_app_logo.svg";
 }

@@ -8,4 +8,6 @@ class AppColors{
    static Color signInIconColor = const Color(0XFF098AD3).withOpacity(.3);
    static Color borderColor = const Color(0XFF10284A);
    static Color spacerColor = const Color(0XFF757575);
+   static Color instructionsColor = const Color(0XFF1F1F1F);
+   static Color scaffoldBackGroundColor = const Color(0XFFF9F9F9);
 }

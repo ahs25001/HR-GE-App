@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:he_dg/fetures/forget_password/presentation/pages/creat_password_screen.dart';
 import 'package:he_dg/fetures/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:he_dg/fetures/forget_password/presentation/pages/verification_screen.dart';
+import 'package:he_dg/fetures/home/presentation/pages/home_screen.dart';
 import 'package:he_dg/fetures/login/presentation/pages/login_screen.dart';
 import 'package:he_dg/fetures/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:he_dg/fetures/sgin%20up/presentation/pages/sign_up_screen.dart';
@@ -9,15 +10,18 @@ import 'package:he_dg/fetures/sgin%20up/presentation/pages/verification_sign_up_
 import '../../fetures/reliability/presentation/pages/reliablty_screen.dart';
 
 class AppRouts {
-  static const String onboarding = "/kkk";
+  static const String onboarding = "/";
   static const String login = "login";
   static const String forgetPassword = "forgetPassword";
   static const String createPasswordScreen = "createPassword";
   static const String verificationScreen = "VerificationScreen";
   static const String verificationSignUpScreen = "verificationSignUpScreen";
+  // static const String homeScreen = "/";
+  static const String homeScreen = "homeScreen";
   static const String signUpScreen = "signUpScreen";
-  // static const String reliabilityScreen = "reliabilityScreen";
-  static const String reliabilityScreen = "/";
+
+  static const String reliabilityScreen = "reliabilityScreen";
+  // static const String reliabilityScreen = "/";
 }
 
 class Routes {
@@ -54,6 +58,10 @@ class Routes {
       case AppRouts.reliabilityScreen:
         return MaterialPageRoute(
           builder: (context) => ReliabilityScreen(),
+        );
+      case AppRouts.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => HomeScreen(),
         );
 
       default:

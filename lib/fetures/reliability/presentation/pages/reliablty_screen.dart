@@ -4,28 +4,25 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:he_dg/config.dart';
+import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_colors.dart';
 import 'package:he_dg/core/utils/app_images.dart';
 import 'package:he_dg/core/utils/app_styles.dart';
+import 'package:he_dg/fetures/reliability/domain/use_cases/get_image_from_camera_usecase.dart';
+import 'package:he_dg/fetures/reliability/presentation/pages/custom_picke_images_screem.dart';
 import 'package:he_dg/fetures/reliability/presentation/widgets/custom_spacer.dart';
 import 'package:he_dg/fetures/reliability/presentation/widgets/custom_step.dart';
 
 import '../bloc/reliability_bloc.dart';
 
-class ReliabilityScreen extends StatefulWidget {
-  const ReliabilityScreen({Key? key}) : super(key: key);
-
-  @override
-  State<ReliabilityScreen> createState() => _ReliabilityScreenState();
-}
-
-class _ReliabilityScreenState extends State<ReliabilityScreen> {
+class ReliabilityScreen extends StatelessWidget {
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ReliabilityBloc(),
+      create: (context) => ReliabilityBloc(getIt<GetImageFromCameraUseCase>()),
       child: Scaffold(
         appBar: AppBar(
           title: SvgPicture.asset(
@@ -37,9 +34,56 @@ class _ReliabilityScreenState extends State<ReliabilityScreen> {
         ),
         body: BlocBuilder<ReliabilityBloc, ReliabilityState>(
           builder: (context, state) {
+            List<Widget> pages = [
+              CustomPickerImagesPage(
+                  imageFile: state.idCardFrontFile,
+                  getImage: () {
+                    print("object");
+                    ReliabilityBloc.get(context).add(GetIDCardFrontEvent());
+                  },
+                  instructions:
+                      "Please take a photo to your ID Front,Make sure it’s clear  ",
+                  title: "Add National ID Front",
+                  hint: "ID Card (Front)"),
+              CustomPickerImagesPage(
+                  imageFile: state.idCardBackFile,
+                  getImage: () {
+                    ReliabilityBloc.get(context).add(GetIDCardBackEvent());
+                  },
+                  instructions:
+                      "Please take a photo to your ID Back,Make sure it’s clear",
+                  title: "Add National ID Back",
+                  hint: "ID Card (Back)"),
+              CustomPickerImagesPage(
+                  imageFile: state.faceFile,
+                  getImage: () {
+                    ReliabilityBloc.get(context).add(GetFaceEvent());
+                  },
+                  instructions: "Please make sure you have a clear background.",
+                  title: "Face",
+                  hint: "Look to the camera"),
+              CustomPickerImagesPage(
+                  imageFile: state.faceRightFile,
+                  getImage: () {
+                    ReliabilityBloc.get(context).add(GetFaceRightEvent());
+                  },
+                  instructions: "Please make sure you have a clear background.",
+                  title: "Face right",
+                  hint: "Look to the camera"),
+              CustomPickerImagesPage(
+                  imageFile: state.faceLeftFile,
+                  getImage: () {
+                    ReliabilityBloc.get(context).add(GetFaceLeftEvent());
+                  },
+                  instructions: "Please make sure you have a clear background.",
+                  title: "Face Left",
+                  hint: "Look to the camera"),
+            ];
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,11 +125,40 @@ class _ReliabilityScreenState extends State<ReliabilityScreen> {
                           isActive: (state.currentStep ?? 0) == 5),
                     ],
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Expanded(
+                    child: PageView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: ReliabilityBloc.get(context).controller,
+                      children: pages,
+                    ),
+                  ),
+                  // const Spacer(),
                   ElevatedButton(
-                    onPressed: () {
-                      ReliabilityBloc.get(context).add(NextStepEvent());
-                    },
+                    onPressed: (((state.currentStep ?? 0) == 0 &&
+                                state.idCardFrontFile != null) ||
+                            (state.currentStep == 1 &&
+                                state.idCardBackFile != null) ||
+                            (state.currentStep == 2 &&
+                                state.faceFile != null) ||
+                            (state.currentStep == 3 &&
+                                state.faceRightFile != null) ||
+                            (state.currentStep == 4 &&
+                                state.faceLeftFile != null))
+                        ? () {
+                            if (state.currentStep != 4) {
+                              ReliabilityBloc.get(context).add(NextStepEvent());
+                            } else {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                AppRouts.homeScreen,
+                                (route) => false,
+                              );
+                            }
+                          }
+                        : null,
                     style: AppStyles.sendButtonStyle,
                     child: Text(
                       "Save",
