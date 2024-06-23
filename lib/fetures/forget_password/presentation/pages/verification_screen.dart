@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_images.dart';
 import 'package:he_dg/core/utils/app_styles.dart';
+import 'package:he_dg/generated/assets.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -26,7 +27,7 @@ class VerificationScreen extends StatelessWidget {
       body: Column(
         children: [
           SvgPicture.asset(
-            AppImages.secondaryAppLogo,
+            Assets.imageSecondryAppLogo,
             width: 140.w,
             height: 43.h,
           ),

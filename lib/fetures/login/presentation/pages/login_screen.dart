@@ -9,6 +9,7 @@ import 'package:he_dg/core/utils/app_styles.dart';
 import 'package:he_dg/fetures/login/presentation/widgets/login_field.dart';
 import 'package:he_dg/fetures/login/presentation/widgets/square_tile.dart';
 
+import '../../../../generated/assets.dart';
 import '../bloc/login_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen>
                           height: 120.h,
                         ),
                         SvgPicture.asset(
-                          AppImages.logo,
+                          Assets.imageLogo,
                           width: 140.w,
                           height: 43.h,
                         ),
@@ -169,11 +170,11 @@ class _LoginScreenState extends State<LoginScreen>
                                         Row(
                                           children: [
                                             const Spacer(),
-                                            SquareTile(AppImages.googleLogo),
+                                            SquareTile(Assets.imageGoogleLogo),
                                             SizedBox(
                                               width: 26.w,
                                             ),
-                                            SquareTile(AppImages.appleLogo),
+                                            SquareTile(Assets.imageAppleLogo),
                                             const Spacer(),
                                           ],
                                         ),

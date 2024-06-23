@@ -29,10 +29,13 @@ class Assets {
   static const String fontsPoppinsSemiBoldItalic = 'assets/fonts/Poppins-SemiBoldItalic.ttf';
   static const String fontsPoppinsThin = 'assets/fonts/Poppins-Thin.ttf';
   static const String fontsPoppinsThinItalic = 'assets/fonts/Poppins-ThinItalic.ttf';
+  static const String imageAggressivePlan = 'assets/image/AggressivePlan.png';
   static const String imageAppleLogo = 'assets/image/apple-logo.svg';
   static const String imageClipPathGroup = 'assets/image/Clip_path_group.svg';
   static const String imageClipPathGroup2 = 'assets/image/Clip_path_group2.svg';
   static const String imageClipPathGroup3 = 'assets/image/Clip_path_group3.svg';
+  static const String imageConservativePlanIcon = 'assets/image/Conservative_Plan_icon.jpg';
+  static const String imageCustomizedPlanImage = 'assets/image/CustomizedPlanImage.jpg';
   static const String imageForgotPassword = 'assets/image/forgot-password.svg';
   static const String imageGoogleLogo = 'assets/image/google_logo.svg';
   static const String imageGreenAppLogo = 'assets/image/green_app_logo.svg';
@@ -42,5 +45,6 @@ class Assets {
   static const String imageOnboarding3 = 'assets/image/onboarding3.svg';
   static const String imageSecondryAppLogo = 'assets/image/secondry_app_logo.svg';
   static const String imageVerificationImage = 'assets/image/verification_image.svg';
+  static const String imageWalletIcon = 'assets/image/wallet_icon.svg';
 
 }

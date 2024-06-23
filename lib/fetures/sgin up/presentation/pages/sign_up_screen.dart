@@ -9,6 +9,7 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../../generated/assets.dart';
 import '../../../login/presentation/widgets/square_tile.dart';
 import '../bloc/sign_up_bloc.dart';
 
@@ -64,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                           height: 120.h,
                         ),
                         SvgPicture.asset(
-                          AppImages.logo,
+                          Assets.imageLogo,
                           width: 140.w,
                           height: 43.h,
                         ),
@@ -236,11 +237,11 @@ class _SignUpScreenState extends State<SignUpScreen>
                                         Row(
                                           children: [
                                             const Spacer(),
-                                            SquareTile(AppImages.googleLogo),
+                                            SquareTile(Assets.imageGoogleLogo),
                                             SizedBox(
                                               width: 26.w,
                                             ),
-                                            SquareTile(AppImages.appleLogo),
+                                            SquareTile(Assets.imageAppleLogo),
                                             const Spacer(),
                                           ],
                                         ),

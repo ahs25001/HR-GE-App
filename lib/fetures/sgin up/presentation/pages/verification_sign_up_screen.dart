@@ -4,6 +4,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:he_dg/fetures/sgin%20up/presentation/bloc/sign_up_bloc.dart';
+import 'package:he_dg/generated/assets.dart';
 
 import '../../../../config/routs/routs.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -40,7 +41,7 @@ class VerificationSignUpScreen extends StatelessWidget {
                       height: 55.h,
                     ),
                     SvgPicture.asset(
-                      AppImages.verificationImage,
+                      Assets.imageVerificationImage,
                       width: 140.w,
                       height: 140.h,
                     ),

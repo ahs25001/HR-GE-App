@@ -8,6 +8,7 @@ import 'package:he_dg/core/utils/app_images.dart';
 import 'package:he_dg/core/utils/app_styles.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
+import '../../../../generated/assets.dart';
 import '../bloc/forget_password_bloc.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         height: 55.h,
                       ),
                       SvgPicture.asset(
-                        AppImages.forgotPasswordImage,
+                        Assets.imageForgotPassword,
                         width: 140.w,
                         height: 140.h,
                       ),

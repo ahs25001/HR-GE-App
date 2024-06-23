@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:he_dg/config/routs/routs.dart';
 import 'package:he_dg/core/utils/app_colors.dart';
 import 'package:he_dg/core/utils/app_images.dart';
+import 'package:he_dg/generated/assets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../bloc/onboarding_bloc.dart';
@@ -17,21 +18,21 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> onboardingPages = [
       OnboardingCustomPage(
-        cliPath: AppImages.firstClipPath,
-        imagePath: AppImages.firstOnboardingImage,
+        cliPath: Assets.imageClipPathGroup,
+        imagePath: Assets.imageOnboarding1,
         title: "Shape Your Financial Future",
         description:
             "invest your money By Starting With HEDG, and secure financial freedom",
       ),
       OnboardingCustomPage(
-        cliPath: AppImages.secondClipPath,
-        imagePath: AppImages.secondOnboardingImage,
+        cliPath: Assets.imageClipPathGroup2,
+        imagePath: Assets.imageOnboarding2,
         description: "see your return on investments in the selected plans",
         title: "Track Your Investments",
       ),
       OnboardingCustomPage(
-        cliPath: AppImages.thirdClipPath,
-        imagePath: AppImages.thirdOnboardingImage,
+        cliPath: Assets.imageClipPathGroup3,
+        imagePath: Assets.imageOnboarding3,
         title: "Calculate Before Investing",
         description:
             "calculate your potential growth to choose the perfect option for you ",

@@ -10,4 +10,6 @@ class AppColors{
    static Color spacerColor = const Color(0XFF757575);
    static Color instructionsColor = const Color(0XFF1F1F1F);
    static Color scaffoldBackGroundColor = const Color(0XFFF9F9F9);
+   static Color borderBackGroundColor = const Color(0XFF6E838F).withOpacity(.2);
+   static Color loseMoneyColor = const Color(0XFFEF5830);
 }

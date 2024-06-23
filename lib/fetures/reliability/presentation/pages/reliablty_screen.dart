@@ -14,6 +14,7 @@ import 'package:he_dg/fetures/reliability/presentation/pages/custom_picke_images
 import 'package:he_dg/fetures/reliability/presentation/widgets/custom_spacer.dart';
 import 'package:he_dg/fetures/reliability/presentation/widgets/custom_step.dart';
 
+import '../../../../generated/assets.dart';
 import '../bloc/reliability_bloc.dart';
 
 class ReliabilityScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class ReliabilityScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: SvgPicture.asset(
-            AppImages.secondaryAppLogo,
+            Assets.imageSecondryAppLogo,
             width: 143.w,
             height: 43.h,
           ),

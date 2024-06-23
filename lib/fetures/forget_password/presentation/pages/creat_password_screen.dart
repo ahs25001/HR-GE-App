@@ -8,8 +8,8 @@ import 'package:he_dg/fetures/forget_password/presentation/widgets/forget_passwo
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../../generated/assets.dart';
 
 class CreatePasswordScreen extends StatelessWidget {
   CreatePasswordScreen({super.key});
@@ -44,7 +44,7 @@ class CreatePasswordScreen extends StatelessWidget {
                         height: 55.h,
                       ),
                       SvgPicture.asset(
-                        AppImages.forgotPasswordImage,
+                        Assets.imageForgotPassword,
                         width: 140.w,
                         height: 140.h,
                       ),
